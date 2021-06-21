@@ -11,6 +11,8 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    env:
+      working-directory:  ./notejam/express/notejam
 
     steps:
     # checkout the repo
@@ -24,6 +26,7 @@ jobs:
         node-version: '14.x'
 
     - name: npm install, build, and test
+      working-drectory: {{enn.woking-directry}}
       run: |
         npm install
         npm run build --if-present
