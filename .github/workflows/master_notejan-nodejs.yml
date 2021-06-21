@@ -11,9 +11,7 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    env:
-      working-directory:  ./notejam/express/notejam
-
+      
     steps:
     # checkout the repo
     - name: 'Checkout Github Action'
@@ -26,14 +24,15 @@ jobs:
         node-version: '14.x'
 
     - name: npm install, build, and test
-      working-drectory: {{enn.woking-directry}}
       run: |
         npm install
         npm run build --if-present
         npm run test --if-present
+      working-directory:  ./notejam/express/notejam
 
     - name: Run Azure webapp deploy action using publish profile credentials
       uses: azure/webapps-deploy@v2
+      working-directory:  ./notejam/express/notejam
       with:
         app-name: notejan-nodejs
         slot-name: Production
