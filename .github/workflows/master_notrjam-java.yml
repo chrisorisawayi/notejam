@@ -33,5 +33,5 @@ jobs:
         app-name: notrjam-java
         slot-name: Production
         publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_B2818504410B460E8C0D96B278E390CB }}
-        package: ${{ github.workspace }}/target/*.jar
+        package: ${{ github.workspace }}/spring/target/*.jar
 
